@@ -685,7 +685,7 @@
 
 <!-- ═══ NAV ═══ -->
 <nav>
-  <div class="nav-logo">NEXUS<span>BUILD</span></div>
+  <div class="nav-logo">sakaw<span>BUILD</span></div>
   <div class="nav-links">
     <a href="#builder">Builder</a>
     <a href="#tiers">Tier Lists</a>
@@ -891,7 +891,7 @@
       <div class="tier-header">
         <div class="tier-badge">● Budget</div>
         <div class="tier-name">THE STARTER</div>
-        <div class="tier-price">~$650</div>
+        <div class="tier-price">~٣٢,٠٠٠ ج.م</div>
         <div class="tier-tagline">1080p competitive gaming, everyday tasks</div>
       </div>
       <div class="tier-body">
@@ -936,7 +936,7 @@
       <div class="tier-header">
         <div class="tier-badge">● Mid-Range</div>
         <div class="tier-name">THE PERFORMER</div>
-        <div class="tier-price">~$1,250</div>
+        <div class="tier-price">~٦٠,٠٠٠ ج.م</div>
         <div class="tier-tagline">1440p ultra settings, 4K capable</div>
       </div>
       <div class="tier-body">
@@ -981,7 +981,7 @@
       <div class="tier-header">
         <div class="tier-badge">● High-End</div>
         <div class="tier-name">THE BEAST</div>
-        <div class="tier-price">~$2,800</div>
+        <div class="tier-price">~١٣٠,٠٠٠ ج.م</div>
         <div class="tier-tagline">4K ultra, content creation, no compromises</div>
       </div>
       <div class="tier-body">
@@ -1373,7 +1373,7 @@
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <span>NEXUS BUILD</span> — PC Hardware Intelligence Platform &nbsp;·&nbsp; Compatibility data is illustrative &nbsp;·&nbsp; Built with HTML / CSS / JS
+  <span>sakaw BUILD</span> — PC Hardware Intelligence Platform &nbsp;·&nbsp; صُنع بواسطة sakaw
 </footer>
 
 <!-- ═══════════════════════════════════════
@@ -1480,7 +1480,7 @@ function onSelectCPU(val) {
     grp.label = `Compatible (${cpu.socket})`;
     sockets.forEach(k => {
       let o = document.createElement('option');
-      o.value = k; o.textContent = COMPONENTS.mb[k].name + ' — ' + COMPONENTS.mb[k].chipset + ' — $' + COMPONENTS.mb[k].price;
+      o.value = k; o.textContent = COMPONENTS.mb[k].name + ' — ' + COMPONENTS.mb[k].chipset + ' — ' + COMPONENTS.mb[k].price.toLocaleString() + ' ج.م';
       grp.appendChild(o);
     });
     mbSel.appendChild(grp);
@@ -1506,7 +1506,7 @@ function onSelectMB(val) {
     grp.label = `Compatible (${mb.ramType})`;
     ramKeys.forEach(k => {
       let o = document.createElement('option');
-      o.value = k; o.textContent = COMPONENTS.ram[k].name + ' — $' + COMPONENTS.ram[k].price;
+      o.value = k; o.textContent = COMPONENTS.ram[k].name + ' — ' + COMPONENTS.ram[k].price.toLocaleString() + ' ج.م';
       grp.appendChild(o);
     });
     ramSel.appendChild(grp);
@@ -1662,7 +1662,7 @@ function updatePriceDisplay(type, val) {
   if (!el) return;
   if (!val || !COMPONENTS[type]?.[val]) { el.textContent = '—'; el.className = 'comp-price empty'; return; }
   const price = COMPONENTS[type][val].price || COMPONENTS[type][val].watts ? COMPONENTS[type][val].price : null;
-  if (price) { el.textContent = `$${price}`; el.className = 'comp-price'; }
+  if (price) { el.textContent = `${price.toLocaleString()} ج.م`; el.className = 'comp-price'; }
 }
 
 function updateSummary() {
@@ -1682,7 +1682,7 @@ function updateSummary() {
     el.style.color = 'var(--text-1)';
     if (comp.price) total += comp.price;
   }
-  document.getElementById('totalPrice').textContent = `$${total.toLocaleString()}`;
+  document.getElementById('totalPrice').textContent = `${total.toLocaleString()} ج.م`;
 }
 
 function updateWattage() {
